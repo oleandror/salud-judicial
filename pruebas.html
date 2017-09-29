@@ -1,0 +1,72 @@
+<html lang="en-US"><head>
+	<meta charset="UTF-8">
+	<title>Combo con campos condicionales</title>
+	<style type="text/css">
+		* { padding:0px; margin:0px; }
+		body { font-family: arial, sans-serif; }
+		
+		
+		select#tipo { padding:5px 10px; }
+		
+		.opciones { display:none; }
+		.btn { border:none; padding:10px 20px; color:#000; background-color:#f44336; margin-top:20px; cursor:pointer; }
+		.btn:hover { background-color:#b71c1c; }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="comboSelector">
+		<select name="tipo" id="tipo" onchange="elegir_opcion(this);">
+			<option value="">Elija un tipo</option>
+			<option value="op1">Tipo 1</option>
+			<option value="op2">Tipo 2</option>
+			<option value="op3">Tipo 3</option>
+		</select>
+		</div>
+		<div class="opcionesWrapper">
+			
+		</div>
+	</div>
+	
+	
+	<div class="opciones">
+		<div id="op1">
+			<form>
+			Nombre: <input type="text" size="30" name="op1" required="required"><br>
+			Direccion: <input type="text" size="30" name="op1"><br>
+			DNI: <input type="text" size="30" name="op1"><br>
+			<input type="submit" name="submit" value="ENVIAR" class="btn">
+			</form>
+		</div>
+		<div id="op2">
+			<form>
+			Razón Social: <input type="text" size="30" name="op1" required="required"><br>
+			Direccion: <input type="text" size="30" name="op1" required="required"><br>
+			RUC: <input type="text" size="30" name="op1"><br>
+			<input type="submit" name="submit" value="ENVIAR" class="btn">
+			</form>
+		</div>
+		<div id="op3">
+			<form>
+			Subtipo: 
+			<select name="subtipo" id=""> 
+				<option value="">subtipo1</option>
+				<option value="">subtipo 2</option>
+				<option value="">subtipo 3</option> 
+			</select> <br>
+			Direccion: <input type="text" size="30" name="op1" required="required"><br>			
+			<input type="submit" name="submit" value="ENVIAR" class="btn">
+			</form>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		function elegir_opcion(combo) {
+			$tipo = jQuery(combo).val();
+			$campos = jQuery("#"+$tipo).html();
+			jQuery(".opcionesWrapper").html($campos);
+		}
+	</script>
+
+</body></html>
