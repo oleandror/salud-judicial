@@ -11,9 +11,7 @@ if(!empty($_POST))
     $correo = $conn->real_escape_string($_POST['correo']);
     $contrasena = $conn->real_escape_string($_POST['contrasena']);
     
-    echo $correo;
-    echo gettype($contrasena);
-    
+   
     if(isNullLogin($correo,$contrasena))
     {
     $errors [] ="Debe llenar todos los campos primero";

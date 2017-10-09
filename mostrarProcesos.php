@@ -18,6 +18,7 @@ include 'welcomeValida.php';
 			padding-bottom: 20px;
 			}
 		</style>
+        
 	</head>
 	
 	<body>
@@ -67,11 +68,30 @@ include 'welcomeValida.php';
 			
         </div>
             </header>
-        <div id ="bienvenida" class="container jumbotron">
+        
+        <br>
+        <br>
+        <div id ="bienvenida" class="container ">
                 <?php// require ("modificarUsuario.php"); ?>
-				<h2><?php echo 'hola car@ '.utf8_decode($row['Nombre']); ?></h2>
+              
+
+                  <div class="row" >
+                    <div class="col-md-15">
+
+                      <div id="tabla">
+                      </div>
+                    </div>
+
+                  
+
+                </div>
       	<br />
 			</div>
         
 	</body>
 </html>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#tabla').load('tabla1.php');
+  });
+</script>

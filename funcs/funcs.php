@@ -8,6 +8,61 @@
 			return false;
 		}		
 	}
+
+function muestraDatos()
+    {
+        global $conn;
+        
+        $prepare="SELECT tipo_demanda.Tipo_demanda, proceso.Nombre_Del_Demandado, medio_control.MedioControl,dependencia.NombreDependencia,proceso.Nombre_Demandante,proceso.Id_Demanda,proceso.Radicacion,estado_proceso.Estado,usuario.Nombre, proceso.Dependencia_Responsable
+        FROM proceso 
+        INNER JOIN medio_control ON medio_control.Id_MeControl=proceso.Medio_control
+        INNER JOIN tipo_demanda ON tipo_demanda.Id_Tipo_demanda=proceso.Id_tipo_proceso
+        INNER JOIN dependencia ON  dependencia.Id_dependencia=proceso.Dependencia_Responsable
+        INNER JOIN estado_proceso ON  estado_proceso.Id_Estado=proceso.Estado_Proceso
+        INNER JOIN usuario ON  usuario.Id_Usuario=proceso.Dueño";
+        
+        $stmt = $conn->query($prepare);
+        return $stmt;   
+        
+    }
+function muestraDatos1($id)
+    {
+        global $conn;
+        
+        $prepare="SELECT tipo_demanda.Tipo_demanda, proceso.Nombre_Del_Demandado, medio_control.MedioControl,dependencia.NombreDependencia,proceso.Nombre_Demandante,proceso.Id_Demanda,proceso.Radicacion,estado_proceso.Estado,usuario.Nombre, proceso.Dependencia_Responsable
+        FROM proceso 
+        INNER JOIN medio_control ON medio_control.Id_MeControl=proceso.Medio_control
+        INNER JOIN tipo_demanda ON tipo_demanda.Id_Tipo_demanda=proceso.Id_tipo_proceso
+        INNER JOIN dependencia ON  dependencia.Id_dependencia=proceso.Dependencia_Responsable
+        INNER JOIN estado_proceso ON  estado_proceso.Id_Estado=proceso.Estado_Proceso
+        INNER JOIN usuario ON  usuario.Id_Usuario=proceso.Dueño
+        
+        WHERE proceso.Id_Demanda='$id';";
+        
+        $stmt = $conn->query($prepare);
+        return $stmt;
+        
+            
+        
+        
+    }
+function isValor($cuantia){
+		if($cuantia>0 && is_numeric($cuantia))
+		{
+			return true;
+			} else {
+			return false;
+		}		
+	}
+
+    function isNullDemanda($nombre_demandado,$id_demandado,$nombre_demandante,$id_demandante,$medio_control,$Fecha_notificacion ,$radicacion,$despacho ,    $cuantia,$aboDesignado,$deResponsable, $heGenerador,$esActual, $proExito, $pretenciones , $falloPrimera,$falloSegunda,$forDefensa,$forProbatoria, $reProcesales,$nivelJuris,$fechaFallo){
+		if(strlen(trim($nombre_demandado)) < 1 || strlen(trim($id_demandado)) < 1 || strlen(trim($nombre_demandante)) < 1 || strlen(trim($id_demandante)) < 1 || strlen(trim($medio_control)) < 1 || strlen(trim($Fecha_notificacion)) < 1 || strlen(trim($radicacion)) < 1 || strlen(trim($despacho)) < 1 || strlen(trim($cuantia)) < 1 || strlen(trim($aboDesignado)) < 1 || strlen(trim($deResponsable)) < 1 || strlen(trim($heGenerador)) < 1 || strlen(trim($esActual)) < 1 || strlen(trim($proExito)) < 1 || strlen(trim($pretenciones)) < 1 || strlen(trim($falloPrimera)) < 1 || strlen(trim($falloSegunda)) < 1 || strlen(trim($forDefensa)) < 1 || strlen(trim($forProbatoria)) < 1)
+		{
+			return true;
+			} else {
+			return false;
+		}		
+	}
 	function isNull1($nombre, $apellidos, $contrasena){
 		if(strlen(trim($nombre)) < 1 || strlen(trim($apellidos)) < 1 || strlen(trim($contrasena)) < 1  )
 		{

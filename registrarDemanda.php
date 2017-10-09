@@ -1,5 +1,6 @@
-
-<?php include 'validaRegistroDemanda.php';?>
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,8 +118,10 @@
                        </div>
               
                </form>
+                       
               
      </div>
+                                 
          
     
                   
@@ -157,10 +160,10 @@
             
                 
                 <select class= "form-control" id="n5" name="MeControl">
-                <option value="Reparacion Directa"> Reparacion Directa </option>
-                <option value="Accion Contractual">  Accion Contractual </option>
-                <option value="Nulidad y Restablecimiento del derecho">  Nulidad y Restablecimiento del derecho </option>
-                <option value="Responsabilidad Medica">  Responsabilidad Medica </option>
+                <option value="1"> Reparacion Directa </option>
+                <option value="3">  Accion Contractual </option>
+                <option value="4">  Nulidad y Restablecimiento del derecho </option>
+                <option value="2">  Responsabilidad Medica </option>
                     
                 
             </select>
@@ -230,37 +233,46 @@
                         <label for="n11" class="input-append"> Dependencia Responsable</label>
              <select class= "form-control" id="n11" name="DeResponsable">
                 
-                <option value="Infraestructura">  Infraestructura </option>
-                <option value="Secretaria de Educacion">  Secretaria de Educacion </option>
-                <option value="Secretaria de Salud">  Secretaria de Salud </option>
-                 <option value="Secretaria de Cultura y Deportes">  Secretaria de Cultura y Deportes </option>
-                 <option value="Secretaria Desarrollo Agropecuario">  Secretaria Desarrollo Agropecuario </option>
-                 <option value="Secretaria de Gobernabilidad">  Secretaria de Gobernabilidad </option>
-                <option value="Secretaria Desarrollo Social">  Secretaria Desarrollo Social </option>
-                 <option value="Secretaria Desarrollo Economico">  Secretaria Desarrollo Economico </option>
+                <option value="12">  Secretaria de Salud </option>
+                <option value="2">  Secretaria de Deportes,Recreacion y Cultura </option>
+                <option value="3">  Secretaria de Desarrollo Agropecuario </option>
+                 <option value="4">  Desarrollo Economico y Competitividad </option>
+                 <option value="5">   Desarrollo Social </option>
+                 <option value="6">  Secretaria de Educacion </option>
+                <option value="7">   Gobierno </option>
+                 <option value="1">  Administrativa </option>
+                 <option value="9">  Infraestructura </option>
+                 <option value="8">  Hacienda </option>
+                 <option value="10">  Juridica </option>
+                 <option value="11">  Planeacion </option>
                 
             </select>
                 </div>
                     
                     <div class="col-xs-3">
                         <label for="n12" class="input-append"> Estado Actual Del Proceso</label>
-             <select class= "form-control" id="n12" name="esActual">
+             <select class="form-control" id="n12" name="esActual">
                 
-                <option value="Despacho">  A despacho </option>
-                <option value="Secretaria de Educacion">  Devolucion a juzgado origen para continuar tramite </option>
-                <option value="Secretaria de Salud">  Traslado </option>
-                 <option value="Secretaria de Cultura y Deportes">  Audiencia Inicial</option>
-                 <option value="Secretaria Desarrollo Agropecuario">  Llamamiento de Garantia </option>
-                 <option value="Secretaria de Gobernabilidad">  Recurso de Apelacion </option>
-                <option value="Secretaria Desarrollo Social">  Concejo Estado </option>
-                 <option value="Secretaria Desarrollo Economico">  Auto acepta Impedimento </option>
-                 <option value="Secretaria Desarrollo Economico">   Traslado de Excepciones</option>
-                 <option value="Secretaria Desarrollo Economico">  Recurso de apelacion contra decision de exception </option>
-                 <option value="Secretaria Desarrollo Economico">  Saneamiento del proceso se declara de oficio falta de jurisdiccion </option>
-                <option value="Secretaria Desarrollo Economico"> Respuesta de demanda  </option>
-                 <option value="Secretaria Desarrollo Economico"> Se Presentaron alegatos de  conclusion </option>
-                 <option value="Secretaria Desarrollo Economico"> Se Consigno gastos del proceso  </option>
+                <option value="1">  Visita </option>
+                <option value="2">  Formulacion de Cargos </option>
+                <option value="3">  Elaboracion Notificacion de Cargos </option>
+                 <option value="4"> Fecha de notificacion de Auto Cargo   </option>
+                 <option value="5">   Esperando Descargos del sujeto </option>
+                 
+                 <option value="6">  Periodo Probatorio Si </option>
+                <option value="7">  Periodo Probatorio NO Estado </option>
+                 <option value="8">  Alegato de conclusion </option>
+                 <option value="9">   Resolucion Sancionatoria</option>
+                
             </select>
+                </div>
+                <div class="col-xs-3">
+                    <label for="n19">  Fecha  </label>
+                    <div id="n19" class="input-append ">
+                        <input data-format="yyyy-MM-dd" type="date" class="form-control" name="fechaEstado">
+                    </div>
+                    
+                   
                 </div>
                     </div>
              <div class="form-group row inline">
@@ -269,10 +281,10 @@
                 
                 <select class= "form-control" id="n13" name="proExito">
                 
-                <option value="Alta">  Alta </option>
-                <option value="Media Alta">  Medio Alta </option>
-                <option value="Media">  Media </option>
-                <option value="Baja">  Baja </option>
+                <option value="1">  Alta </option>
+                <option value="2">  Media Alta </option>
+                <option value="3">  Media </option>
+                <option value="4">  Baja </option>
                 
             </select>   
                 
@@ -282,8 +294,9 @@
                 
                 <select class= "form-control" id="n13" name="pretenciones">
                 
-                <option value="Determinadas">  Determinadas </option>
-                <option value="Indeterminadas">  Indeterminadas </option>
+                <option value="1">  Determinadas </option>
+                <option value="3">  Indeterminadas </option>
+                    <option value="2">  Prestaciones Periodicas </option>
                 
                 
             </select>   
@@ -298,8 +311,8 @@
                 
                 <select class= "form-control" id="n13" name="falloPrimera">
                 
-                <option value="Reparacion Directa">  Favorable </option>
-                <option value="Accion Contractual">  Desfavorable </option>
+                <option value="1">  Favorable </option>
+                <option value="2">  Desfavorable </option>
                
                 
             </select>   
@@ -310,8 +323,8 @@
                 
                 <select class= "form-control" id="n13" name="falloSegunda">
                 
-                <option value="Reparacion Directa">  Favorable </option>
-                <option value="Accion Contractual">  Desfavorable </option>
+                <option value="1">  Favorable </option>
+                <option value="2">  Desfavorable </option>
                 
                 
             </select>   
@@ -326,10 +339,10 @@
                 
                 <select class= "form-control" id="n13" name="forDefensa">
                 
-                <option value="Alta">  Alta </option>
-                <option value="Media Alta">  Medio Alta </option>
-                <option value="Media">  Media </option>
-                <option value="Baja">  Baja </option>
+                <option value="1">  Alta </option>
+                <option value="2">  Medio Alta </option>
+                <option value="3">  Media </option>
+                <option value="4">  Baja </option>
                 
             </select>   
                 
@@ -339,10 +352,10 @@
                 
                 <select class= "form-control" id="n13" name="forProbatoria">
                 
-                <option value="Alta">  Alta </option>
-                <option value="Media Alta">  Medio Alta </option>
-                <option value="Media">  Media </option>
-                <option value="Baja">  Baja </option>
+                <option value="1">  Alta </option>
+                <option value="2">  Medio Alta </option>
+                <option value="3">  Media </option>
+                <option value="4">  Baja </option>
                 
                 
             </select>   
@@ -356,10 +369,10 @@
                 
                 <select class= "form-control" id="n13" name="reProcesales">
                 
-                <option value="ALta">  Alta </option>
-                <option value="Medio Alta">  Medio Alta </option>
-                <option value="Media">  Media </option>
-                <option value="Baja">  Baja </option>
+                <option value="1">  Alta </option>
+                <option value="2">  Medio Alta </option>
+                <option value="3">  Media </option>
+                <option value="4">  Baja </option>
                 
             </select>   
                 
@@ -369,10 +382,10 @@
                 
                 <select class= "form-control" id="n13" name="nivelJuris">
                 
-                <option value="Alta">  Alta </option>
-                <option value="Medio Alta">  Medio Alta </option>
-                <option value="Media">  Media </option>
-                <option value="Baja">  Baja </option>
+                <option value="1">  Alta </option>
+                <option value="2">  Medio Alta </option>
+                <option value="3">  Media </option>
+                <option value="4">  Baja </option>
                 
                 
             </select>   
@@ -385,8 +398,6 @@
                     <label for="n6">  Fecha Probable de Fallo </label>
                     <div id="n6" class="input-append ">
                         <input data-format="yyyy-MM-dd" type="date" class="form-control" name="fechaFallo">
-                        
-                    
                     </div>
                     
                    
@@ -394,8 +405,8 @@
                     </div>
             <div class="form-group row">
                 <div class="col-sm-8">
-                    <label for="n7" class="input-append"> Observacion/Comentario </label>
-                    <input type="text" placeholder=" Observacion/Comentario" id="n7" class="form-control" name="observacion" size="30" required>
+                    <label for="n77" class="input-append"> Observacion/Comentario </label>
+                    <input type="text" placeholder=" Observacion/Comentario" id="n77" class="form-control" name="observacion" size="30" >
                 
                 </div>
                 
@@ -432,6 +443,7 @@
             </div>
              </div>        
   </div>             
+    <?php  include 'validaRegistroDemanda.php';?>
 
 <script type="text/javascript">
 		function elegir_opcion(combo) {
