@@ -3,18 +3,18 @@
 	require 'conection.php';
 	require 'funcs/funcs.php';
 	
-	if(!isset($_SESSION["id_usuario"])){ //Si no ha iniciado sesiÃ³n redirecciona a index.php
+	if(!isset($_SESSION["id_usuario"])){ //Si no ha iniciado sesión redirecciona a index.php
 		//echo $id_usuario;
         header("Location: sesion/index.php");
 	}
 	
 	$idUsuario = $_SESSION['id_usuario'];
 	
-	$sql1 = "SELECT Id_Usuario, Nombre,Apellido,Telefono,ContraseÃ±a FROM usuario WHERE Id_Usuario = '$idUsuario'";
+	$sql1 = "SELECT Id_Usuario, Nombre,Apellido,Telefono,Contraseña FROM usuario WHERE Id_Usuario = '$idUsuario'";
 	$result1 = $conn->query($sql1);
 	
     $row1 = $result1->fetch_assoc();
-    $conAux =  utf8_decode($row1['ContraseÃ±a']);
+    $conAux =  utf8_decode($row1['Contraseña']);
     
     $errors =array();
     
@@ -56,7 +56,7 @@
             }
             else
             {
-                $errors[] = "<p class='error'>* ContraseÃ±a Incorrecta </p>";
+                $errors[] = "<p class='error'>* Contraseña Incorrecta </p>";
             }
         }
             else 
@@ -90,8 +90,8 @@
     </head>
     <body clasS="container">
        
-    <header>
-        <div class="container">
+    	<header>
+        <div class="container-fluid">
 			
 			<nav class='navbar navbar-default navbar-fixed-top' role="navigation">
 				<div class='container-fluid'>
@@ -112,13 +112,23 @@
                         
                             <li class=''> <a  href='modificarUsuario.php'> Administrar Cuenta</a> </li>
                         </ul>
-						
+						<!--
 						<?php if($_SESSION['id_role']==1) { ?>
 							<ul class='nav navbar-nav'>
-								<li><a href='#'>Administrar Usuarios</a></li>
+								<li><a href='registrarDemanda.php'>Ingresar Proceso</a></li>
+							</ul>
+						<?php } ?> -->
+                        
+                       <?php if($_SESSION['id_role']==1) { ?>
+							<ul class='nav navbar-nav'>
+								<li><a href='mostrarProcesos.php'>Administrar Procesos</a></li>
 							</ul>
 						<?php } ?>
-						
+                        <?php if($_SESSION['id_role']==1) { ?>
+							<ul class='nav navbar-nav'>
+								<li><a href='mostrarUsuario.php'>Administrar Usuarios</a></li>
+							</ul>
+						<?php } ?>
 						<ul class='nav navbar-nav navbar-right'>
 							<li><a href='logout.php'>Cerrar Sesi&oacute;n</a></li>
 						</ul>
@@ -130,7 +140,7 @@
 			
 			
         </div>
-            </header> 
+            </header>
         
         <br>
         <br>
@@ -169,9 +179,9 @@
                        
 
                     <div class="col-xs-6  "> 
-                        <label for="" class="text-center">  ContraseÃ±a: </label> 
+                        <label for="" class="text-center">  Contraseña: </label> 
                         
-                <input type="text"  name="contra" placeholder="ContraseÃ±a" class=" form-control"   required> 
+                <input type="text"  name="contra" placeholder="Contraseña" class=" form-control"   required> 
                 </div>
                        
                         </div>
@@ -181,7 +191,7 @@
                  <?php 
          echo resultBlock($errors);
         ?>
-            <p class="form__link">Cambiar ContraseÃ±a?:   <a href='recupera.php'> Ingresa Aqui</a></p>
+            <p class="form__link">Cambiar Contraseña?:   <a href='recupera.php'> Ingresa Aqui</a></p>
             </div>
         </div>
             

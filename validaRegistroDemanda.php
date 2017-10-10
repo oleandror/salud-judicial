@@ -4,7 +4,7 @@
 	require 'funcs/funcs.php';
     //session_start();
 	
-	if(!isset($_SESSION["id_usuario"])){ //Si no ha iniciado sesiÃ³n redirecciona a index.php
+	if(!isset($_SESSION["id_usuario"])){ //Si no ha iniciado sesión redirecciona a index.php
 		//echo $id_usuario;
         header("Location: sesion/index.php");
 	}

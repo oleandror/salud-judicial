@@ -12,8 +12,8 @@
     $apellidos = $conn->real_escape_string($_POST['apellidos']);
     $telefono = $conn->real_escape_string($_POST['telefono']);
     $correo = $conn->real_escape_string($_POST['correo']);
-    $contrasena = $conn->real_escape_string($_POST['contraseÃ±a']);
-    $con_contrasena =$conn->real_escape_string($_POST['con_contraseÃ±a']);
+    $contrasena = $conn->real_escape_string($_POST['contraseña']);
+    $con_contrasena =$conn->real_escape_string($_POST['con_contraseña']);
     
     $activo = 0;
     $tipo_usuario = $conn->real_escape_string($_POST['role']);
@@ -30,7 +30,7 @@
         }
         if(!validaPassword($contrasena,$con_contrasena))
         {
-            $errors[] ="<p class='error'>* Las contraseÃ±as no coinciden </p>";
+            $errors[] ="<p class='error'>* Las contraseñas no coinciden </p>";
         }
         if(emailExiste($correo))
         {
@@ -159,11 +159,11 @@
 
             <div class="form-group row">
             <div class="col-xs-5">
-            <input type="password"  clasS="form-control "  id="contraseÃ±a" name="contraseÃ±a" placeholder="ContraseÃ±a"  required >
+            <input type="password"  clasS="form-control "  id="contraseña" name="contraseña" placeholder="Contraseña"  required >
             </div>
                     
             <div class="col-xs-5">
-            <input type="password"  clasS="form-control " id="con_contraseÃ±a" name="con_contraseÃ±a" placeholder="Confirmar ContraseÃ±a"  required >
+            <input type="password"  clasS="form-control " id="con_contraseña" name="con_contraseña" placeholder="Confirmar Contraseña"  required >
                 </div></div>
                         <div class="form-group row">
               <div class="col-xs-10 text-center">  
@@ -180,7 +180,7 @@
             </div>
             </div>
             <div class="col-xs-6">
-            <p class="form__link">Â¿ Ya tienes una cuenta? <a href='index.php'> Ingresa Aqui</a></p>
+            <p class="form__link">¿ Ya tienes una cuenta? <a href='index.php'> Ingresa Aqui</a></p>
           </div>
             
             <?php 

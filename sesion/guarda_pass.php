@@ -31,7 +31,7 @@
     }
     else
     {
-        echo " Las contraseÃ±as no coinciden";
+        echo " Las contraseñas no coinciden";
     }
     
 

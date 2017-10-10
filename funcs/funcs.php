@@ -19,7 +19,19 @@ function muestraDatos()
         INNER JOIN tipo_demanda ON tipo_demanda.Id_Tipo_demanda=proceso.Id_tipo_proceso
         INNER JOIN dependencia ON  dependencia.Id_dependencia=proceso.Dependencia_Responsable
         INNER JOIN estado_proceso ON  estado_proceso.Id_Estado=proceso.Estado_Proceso
-        INNER JOIN usuario ON  usuario.Id_Usuario=proceso.DueÃ±o";
+        INNER JOIN usuario ON  usuario.Id_Usuario=proceso.Dueño";
+        
+        $stmt = $conn->query($prepare);
+        return $stmt;   
+        
+    }
+function muestraDatosUser()
+    {
+        global $conn;
+        
+        $prepare="SELECT usuario.Nombre,usuario.Id_Usuario,usuario.Apellido,usuario.Correo,usuario.Telefono, rol.Tipo
+        FROM usuario
+        INNER JOIN rol ON usuario.Id_Role=rol.Id_Role ";
         
         $stmt = $conn->query($prepare);
         return $stmt;   
@@ -35,7 +47,7 @@ function muestraDatos1($id)
         INNER JOIN tipo_demanda ON tipo_demanda.Id_Tipo_demanda=proceso.Id_tipo_proceso
         INNER JOIN dependencia ON  dependencia.Id_dependencia=proceso.Dependencia_Responsable
         INNER JOIN estado_proceso ON  estado_proceso.Id_Estado=proceso.Estado_Proceso
-        INNER JOIN usuario ON  usuario.Id_Usuario=proceso.DueÃ±o
+        INNER JOIN usuario ON  usuario.Id_Usuario=proceso.Dueño
         
         WHERE proceso.Id_Demanda='$id';";
         
@@ -188,7 +200,7 @@ function actualizaUsuario($nombre,$apellidos,$telefono,$id){
 		//require 'conection.php';
 		global $conn;
 		
-		$stmt =$conn->prepare( "INSERT INTO usuario (Nombre, Apellido,Telefono,Correo,ContraseÃ±a, Id_Role, Activacion, Token) VALUES(?,?,?,?,?,?,?,?)");
+		$stmt =$conn->prepare( "INSERT INTO usuario (Nombre, Apellido,Telefono,Correo,Contraseña, Id_Role, Activacion, Token) VALUES(?,?,?,?,?,?,?,?)");
         $stmt->bind_param('sssssiis',$nombre,$apellidos,$telefono,$email,$pass_hash,$tipo_usuario,$activo,$token);
         
         
@@ -318,7 +330,7 @@ function actualizaUsuario($nombre,$apellidos,$telefono,$id){
 		global $conn;
         //$errors=array('');
 		
-		$stmt = $conn->prepare("SELECT Id_Usuario, Id_Role, ContraseÃ±a FROM usuario WHERE  Correo = ? LIMIT 1");
+		$stmt = $conn->prepare("SELECT Id_Usuario, Id_Role, Contraseña FROM usuario WHERE  Correo = ? LIMIT 1");
 		$stmt->bind_param("s", $correo);
 		$stmt->execute();
 		$stmt->store_result();
@@ -328,12 +340,12 @@ function actualizaUsuario($nombre,$apellidos,$telefono,$id){
 		//	echo $rows;
 			if(isActivo($correo)){
 				//echo 'correo activo';
-				$stmt->bind_result($Id_Usuario, $Id_Role, $ContraseÃ±a);
+				$stmt->bind_result($Id_Usuario, $Id_Role, $Contraseña);
 				$stmt->fetch();
-               // echo $Id_Usuario." ".$Id_Role." ".$ContraseÃ±a;
-				//echo $ContraseÃ±a;
+               // echo $Id_Usuario." ".$Id_Role." ".$Contraseña;
+				//echo $Contraseña;
                 //echo $password;
-				$validaPassw = password_verify($password, $ContraseÃ±a);
+				$validaPassw = password_verify($password, $Contraseña);
 				//echo gettype($validaPassw);
                 //echo $validaPassw;
 				if($validaPassw){
@@ -350,7 +362,7 @@ function actualizaUsuario($nombre,$apellidos,$telefono,$id){
                     header("location: ../welcome.php");
 					} else {
 					//echo "no entro";
-					$errors = "<p class='error'>* ContraseÃ±a incorrecta </p>";
+					$errors = "<p class='error'>* Contraseña incorrecta </p>";
 				}
 				} else {
 				$errors = "<p class='error'>* El usuario no esta activo </p>";
@@ -481,7 +493,7 @@ function actualizaUsuario($nombre,$apellidos,$telefono,$id){
 		
 		global $conn;
 		
-		$stmt = $conn->prepare("UPDATE usuario SET ContraseÃ±a = ?, token_password='', password_request=0 WHERE Id_Usuario = ? AND token_password = ?");
+		$stmt = $conn->prepare("UPDATE usuario SET Contraseña = ?, token_password='', password_request=0 WHERE Id_Usuario = ? AND token_password = ?");
 		$stmt->bind_param('sis', $password, $user_id, $token);
 		
 		if($stmt->execute()){

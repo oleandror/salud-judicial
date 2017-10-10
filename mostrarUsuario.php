@@ -5,7 +5,7 @@ include 'welcomeValida.php';
  
 <html>
 	<head>
-		<title>Welcome</title>
+		<title>Usuarios</title>
         <script src="https://code.jquery.com/jquery.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.min.css" >
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css" >
@@ -18,10 +18,11 @@ include 'welcomeValida.php';
 			padding-bottom: 20px;
 			}
 		</style>
+        
 	</head>
 	
-	<body class="container">
-		<header class="container">
+	<body>
+		<header>
         <div class="container-fluid">
 			
 			<nav class='navbar navbar-default navbar-fixed-top' role="navigation">
@@ -72,11 +73,30 @@ include 'welcomeValida.php';
 			
         </div>
             </header>
-        <div id ="bienvenida" class="container jumbotron">
+        
+        <br>
+        <br>
+        <div id ="bienvenida" class="container ">
                 <?php// require ("modificarUsuario.php"); ?>
-				<h2><?php echo 'hola car@ '.utf8_decode($row['Nombre']); ?></h2>
+              
+
+                  <div class="row" >
+                    <div class="col-md-15">
+
+                      <div id="tabla">
+                      </div>
+                    </div>
+
+                  
+
+                </div>
       	<br />
 			</div>
         
 	</body>
 </html>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#tabla').load('tabla2.php');
+  });
+</script>

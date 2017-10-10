@@ -1,22 +1,22 @@
 <?php 
 
 $correo1 ="oleandror@utp.edu.co";
-$contraseÃ±a1 ="919";
+$contraseña1 ="919";
 include 'conection.php';
 echo 'hola mundo ';
 echo $correo1;
 
 
 
-$consulta= "SELECT * FROM usuario WHERE Correo='$correo1' and ContraseÃ±a='$contraseÃ±a1' ";	
+$consulta= "SELECT * FROM usuario WHERE Correo='$correo1' and Contraseña='$contraseña1' ";	
 
 
 
 
-$consulta_contraseÃ±a="SELECT contraseÃ±a FROM usuario WHERE Correo='$correo1' ";
+$consulta_contraseña="SELECT contraseña FROM usuario WHERE Correo='$correo1' ";
         
 $resultado =mysqli_query($conn,$consulta);
-$resultado2 =mysqli_query($conn,$consulta_contraseÃ±a);
+$resultado2 =mysqli_query($conn,$consulta_contraseña);
 
 //echo $resultado;
 //echo mysqli_result($resultado,0);

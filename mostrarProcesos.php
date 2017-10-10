@@ -22,7 +22,7 @@ include 'welcomeValida.php';
 	</head>
 	
 	<body>
-		<header>
+			<header>
         <div class="container-fluid">
 			
 			<nav class='navbar navbar-default navbar-fixed-top' role="navigation">
@@ -40,7 +40,7 @@ include 'welcomeValida.php';
 					
 					<div id='navbar1' class='navbar-collapse collapse'>
 						<ul class='nav navbar-nav'>
-							<li class=''><a href='#bienvenida'>Inicio</a></li>			
+							<li class=''><a href='welcome.php'>Inicio</a></li>			
                         
                             <li class=''> <a  href='modificarUsuario.php'> Administrar Cuenta</a> </li>
                         </ul>
@@ -54,6 +54,11 @@ include 'welcomeValida.php';
                        <?php if($_SESSION['id_role']==1) { ?>
 							<ul class='nav navbar-nav'>
 								<li><a href='mostrarProcesos.php'>Administrar Procesos</a></li>
+							</ul>
+						<?php } ?>
+                        <?php if($_SESSION['id_role']==1) { ?>
+							<ul class='nav navbar-nav'>
+								<li><a href='mostrarUsuario.php'>Administrar Usuarios</a></li>
 							</ul>
 						<?php } ?>
 						<ul class='nav navbar-nav navbar-right'>

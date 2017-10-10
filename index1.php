@@ -15,7 +15,7 @@
 				<div class="panel panel-info" >
 					<div class="panel-heading">
 						<div class="panel-title">Iniciar Sesi&oacute;n</div>
-						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="recupera.php">Â¿Se te olvid&oacute; tu contraseÃ±a?</a></div>
+						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="recupera.php">¿Se te olvid&oacute; tu contraseña?</a></div>
 					</div>     
 					
 					<div style="padding-top:30px" class="panel-body" >
@@ -43,7 +43,7 @@
 							<div class="form-group">
 								<div class="col-md-12 control">
 									<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-										No tiene una cuenta! <a href="registro.php">Registrate aquÃ­</a>
+										No tiene una cuenta! <a href="registro.php">Registrate aquí</a>
 									</div>
 								</div>
 							</div>    

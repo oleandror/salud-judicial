@@ -1,4 +1,4 @@
-<?php
+﻿<?php
  
  include 'funcs/funcs.php';
 include 'conection.php';

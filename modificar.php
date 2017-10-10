@@ -146,8 +146,8 @@
              <select class="form-control" id="n12" name="esActual">
                 
                 <option value="1" <?php if($row['Estado_Proceso']=="1") echo "selected" ?>>  Visita </option>
-                <option value="2" <?php if($row['Estado_Proceso']=="2") echo "selected" ?>>  FormulaciÃ³n de Cargos </option>
-                <option value="3" <?php if($row['Estado_Proceso']=="3") echo "selected" ?>>  ElaboraciÃ³n NotificaciÃ³n de Cargos </option>
+                <option value="2" <?php if($row['Estado_Proceso']=="2") echo "selected" ?>>  Formulación de Cargos </option>
+                <option value="3" <?php if($row['Estado_Proceso']=="3") echo "selected" ?>>  Elaboración Notificación de Cargos </option>
                  <option value="4" <?php if($row['Estado_Proceso']=="4") echo "selected" ?>> Fecha de notificacion de Auto Cargo   </option>
                  <option value="5" <?php if($row['Estado_Proceso']=="5") echo "selected" ?>>   Esperando Descargos del sujeto </option>
                  

@@ -23,12 +23,12 @@ if(!empty($_POST))
             $token = generaTokenPass($user_id);
             
             $url='http://'.$_SERVER["SERVER_NAME"].'/salud/sesion/cambia_password.php?user_id='.$user_id.'&token='.$token;
-            $asunto = 'RECUPERAR CONTRASEÃ‘A';
-            $cuerpo = "Hola $user_nombre: <br /> <br/> Se ha solicitado un reinicio de contraseÃ±a <br/><br/> para Restaurar la contraseÃ±a, da click en el siguiente LINK : <a href='$url'>$url</a>";
+            $asunto = 'RECUPERAR CONTRASEÑA';
+            $cuerpo = "Hola $user_nombre: <br /> <br/> Se ha solicitado un reinicio de contraseña <br/><br/> para Restaurar la contraseña, da click en el siguiente LINK : <a href='$url'>$url</a>";
             
             if(enviarEmail($email,$user_nombre,$asunto,$cuerpo))
             {
-                echo " Hemos enviado un correo a $email con las indicaciones para recuperar contraseÃ±a";
+                echo " Hemos enviado un correo a $email con las indicaciones para recuperar contraseña";
                 echo "<a href='index.php' > INICIAR SESION </a>";
                 exit;
             }
@@ -84,7 +84,7 @@ if(!empty($_POST))
 			<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
 				<div class="panel panel-warning" >
 					<div class="panel-heading">
-						<div class="panel-title">Recuperar ContraseÃ±a</div>
+						<div class="panel-title">Recuperar Contraseña</div>
 						<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="index.php">Iniciar Sesi&oacute;n</a></div>
 					</div>     
 					
@@ -108,7 +108,7 @@ if(!empty($_POST))
 							<div class="form-group">
 								<div class="col-md-12 control">
 									<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-										No tiene una cuenta! <a href="../vista_insertar.php">Registrate aquÃ­</a>
+										No tiene una cuenta! <a href="../vista_insertar.php">Registrate aquí</a>
 									</div>
 								</div>
 							</div>    

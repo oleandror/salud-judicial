@@ -12,8 +12,8 @@
     $apellidos = $conn->real_escape_string($_POST['apellidos']);
     $telefono = $conn->real_escape_string($_POST['telefono']);
     $correo = $conn->real_escape_string($_POST['correo']);
-    $contrasena = $conn->real_escape_string($_POST['contraseÃ±a']);
-    $con_contrasena =$conn->real_escape_string($_POST['con_contraseÃ±a']);
+    $contrasena = $conn->real_escape_string($_POST['contraseña']);
+    $con_contrasena =$conn->real_escape_string($_POST['con_contraseña']);
     $activo = 0;
     $tipo_usuario = 2;
     
@@ -28,7 +28,7 @@
         }
         if(!validaPassword($contrasena,$con_contrasena))
         {
-            $errors[] =" Las contraseÃ±as no coinciden";
+            $errors[] =" Las contraseñas no coinciden";
         }
         if(emailExiste($correo))
         {
@@ -74,7 +74,7 @@
         
     //echo resultBlock($errors);
 
-    //$insertar = "INSERT INTO usuario(Nombre,Apellido,Telefono,Correo,ContraseÃ±a) VALUES ('$nombre','$apellidos','$telefono','$correo','$contrasena')";
+    //$insertar = "INSERT INTO usuario(Nombre,Apellido,Telefono,Correo,Contraseña) VALUES ('$nombre','$apellidos','$telefono','$correo','$contrasena')";
     
 
     //$verificar = mysqli_query($conn,"SELECT * FROM usuario WHERE Correo ='$correo'");

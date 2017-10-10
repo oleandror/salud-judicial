@@ -2,9 +2,9 @@
 	
 
 	$correo = $_POST['correo'];
-	$contraseÃ±a = $_POST['contraseÃ±a'];
+	$contraseña = $_POST['contraseña'];
 
 	echo  "<p> $correo </p>";
-	echo " <p> $contraseÃ±a </p>";
+	echo " <p> $contraseña </p>";
 
  ?>

@@ -18,16 +18,16 @@ if (isset($_POST['iniciar']))
 		}
 		}
 
-		if( empty($contraseÃ±a1))
+		if( empty($contraseña1))
 		{
-			echo" <p class='error'>* ContraseÃ±a no puede estar vacio </p>";
+			echo" <p class='error'>* Contraseña no puede estar vacio </p>";
 		}
 	
-            if(isNullLogin($correo1,$contraseÃ±a1))
+            if(isNullLogin($correo1,$contraseña1))
             {
             $errors[]= " Debe llenar todos los campos";
             }
-    $errors[]= login($correo1,$contraseÃ±a1);
+    $errors[]= login($correo1,$contraseña1);
     
 /*
 $verificar = mysqli_query($conn,"SELECT * FROM usuario WHERE Correo ='$correo1'");
@@ -37,7 +37,7 @@ $fila = mysqli_fetch_row($verificar);
         
  if(mysqli_num_rows($verificar)>0)
  {
-	if($fila[5] == $contraseÃ±a1)
+	if($fila[5] == $contraseña1)
 		{
 			// header("location:bienvenido.html");
             
@@ -48,7 +48,7 @@ $fila = mysqli_fetch_row($verificar);
 	else
 		{
             
-			echo "<p class='error'>* ContraseÃ±a incorrecta";
+			echo "<p class='error'>* Contraseña incorrecta";
 		}
  }
         else

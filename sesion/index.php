@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
 
-    <title>INICIAR SESIÃ“N</title>
+    <title>INICIAR SESIÓN</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -26,7 +25,7 @@
     <input type="submit" name="iniciar" value="INICIAR" style="padding-top:0px;margin-top: 10px;margin-left:150px;">
     <div class="cont1 container" align="center">
     <input class="" type="button" value="Registrar" name="Registrar" onclick="window.location.href='vista_insertar.php'" style="width:80px;height:34px;left:1400px,right:750px;">
-    <input class="input1" type="button" onclick="window.location.href='recupera.php'" value="Recordar ContraseÃ±a" name="Registrar" onclick="window.location.href=http:/localhost" style="width:154px; height:34px;left:50px;right:70px;">
+    <input class="input1" type="button" onclick="window.location.href='recupera.php'" value="Recordar Contraseña" name="Registrar" onclick="window.location.href=http:/localhost" style="width:154px; height:34px;left:50px;right:70px;">
 
     </div>
 
@@ -38,7 +37,7 @@
 
 
     </form>
-         <?php include 'ValidaInicioSesion.php';?>
+         <?php include 'sesion/ValidaInicioSesion.php';?>
          </div>
     
     

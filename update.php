@@ -28,7 +28,7 @@ $reProcesales =$conn->real_escape_string($_POST['reProcesales']);
 $nivelJuris =$conn->real_escape_string($_POST['nivelJuris']);
 $fechaFallo =$conn->real_escape_string($_POST['fechaFallo']);
 $observacion =$conn->real_escape_string($_POST['observacion']);
-//$dueno = $conn->real_escape_string($_POST['dueÃ±o']);
+//$dueno = $conn->real_escape_string($_POST['dueño']);
 
 	$sql = "UPDATE proceso SET Nombre_Del_Demandado='$nombreDemandado',
     Hecho_Generador	='$heGenerador',
